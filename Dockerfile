@@ -1,16 +1,10 @@
-FROM microsoft/dotnet:2.1-sdk AS build-env
-WORKDIR /app
+FROM node:10.9-alpine
+workdir /app
 
-# Copy csproj and restore as distinct layers
-COPY *.csproj ./
-RUN dotnet restore
+COPY package*.json ./
+RUN npm install
+COPY . .
 
-# Copy everything else and build
-COPY . ./
-RUN dotnet publish -c Release -o out
+EXPOSE 8081
+CMD ["node", "index.js"]
 
-# Build runtime image
-FROM microsoft/dotnet:2.1-aspnetcore-runtime
-WORKDIR /app
-COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "BetaStampWebhooksTest.dll"]
