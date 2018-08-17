@@ -11,7 +11,7 @@ namespace BetaStampWebhooksTest.Pages
     {
         public void OnGet()
         {
-
+            
         }
     }
 }
