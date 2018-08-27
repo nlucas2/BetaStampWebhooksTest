@@ -15,7 +15,16 @@ http.createServer(function (req, res) {
 	                        res.write(data);
 	                        res.end();
 		});
-	}
+	}if(url === '/GitDeployTest'){                                                           
+        fs.readFile('gitDeploy.txt', function(err, data) {                       
+        	                if(err) {                                                        
+        	                        throw err;                                               
+        	                }                                                                
+        	                res.writeHead(200, {'Content-Type': 'text/plain'});              
+        	                res.write(data);                                                 
+        	                res.end();                                                       
+        	});                                                                              
+	}                                                                                        
 	else {
 		res.writeHead(200, {'Content-Type': 'text/plain'});
 		res.write('This is a simple app for testing functionality');
