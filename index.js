@@ -15,7 +15,8 @@ http.createServer(function (req, res) {
 	                        res.write(data);
 	                        res.end();
 		});
-	}if(url === '/GitDeployTest'){                                                           
+	}
+	else if(url === '/GitDeployTest'){                                                           
         fs.readFile('gitDeploy.txt', function(err, data) {                       
         	                if(err) {                                                        
         	                        throw err;                                               
