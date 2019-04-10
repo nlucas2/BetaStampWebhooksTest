@@ -2,6 +2,8 @@
 var http = require('http');
 var fs = require('fs');
 
+const PORT = process.env.PORT || 8081;
+
 //Define requests
 http.createServer(function (req, res) {
 	res.writeHead(200, {'Content-Type': 'text/html'})
@@ -32,7 +34,7 @@ http.createServer(function (req, res) {
 		res.end();
 	}
 
-}).listen(8081, function() {
-	console.log("Server start at port 8081");
+}).listen(PORT, function() {
+	console.log("Server start at port" + PORT);
 });
 
